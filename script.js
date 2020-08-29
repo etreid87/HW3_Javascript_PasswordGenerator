@@ -1,5 +1,6 @@
 //Assignment Code
 var generateBtn = document.querySelector("#generate");
+var passwordText = document.querySelector("#password");
 
 generateBtn.addEventListener("click", function () {
 
@@ -12,100 +13,94 @@ generateBtn.addEventListener("click", function () {
 
   //Generated prompt to select criteria
   var howLong = prompt("How many sylables would you like your password to be? Please enter a number between 8 and 128");
+    if (howLong >= 8 || howLong <= 128) {
 
-
-  function writePassword() {
-
-    var lowerConfirm = confirm("Would you like to include lowercase letters?");
-    var upperConfirm = confirm("Would you like to include uppercase letters?");
-    var numConfirm = confirm("Would you like to include numbers?");
-    var specialConfirm = confirm("Would you like to include special characters?");
-
-    while (!lowerConfirm && !upperConfirm && !numConfirm && !specialConfirm) {
-      alert("Please select at least one password parameter");
-      return;
+    while (howLong < 8 || howLong > 128) {
+    alert("Please select a value between 8 and 128");
+    return;
     }
+
+  var lowerConfirm = confirm("Would you like to include lowercase letters?");
+  var upperConfirm = confirm("Would you like to include uppercase letters?");
+  var numConfirm = confirm("Would you like to include numbers?");
+  var specialConfirm = confirm("Would you like to include special characters?");
+
+  while (!lowerConfirm && !upperConfirm && !numConfirm && !specialConfirm) {
+    alert("Please select at least one password parameter");
+    return;
   }
+
 
   //function using if statments to generate password
 
+  function generatePassword() {
 
-  if (howLong >= 8 && howLong <= 128) {
-    if (lowerConfirm && upperConfirm && numConfirm && specialConfirm) {
-      for (i = 0; i < howLong; i++) {
-        passwordText += Math.floor(Math.random() * howLong.length);
+    var newPassword = ""
+
+      if (lowerConfirm && upperConfirm && numConfirm && specialConfirm) {
+        for (i = 0; i < howLong; i++) {
+          newPassword += charAt(Math.floor(Math.random() * howLong.length));
+        }
       }
-    }
-    else if (lowerConfirm && upperConfirm && numConfirm) {
-      for (i = 0; i < howLong; i++) {
-        passwordText += Math.floor(Math.random() * howLong.length);
+      else if (lowerConfirm && upperConfirm && numConfirm) {
+        for (i = 0; i < howLong; i++) {
+          passwordText += Math.floor(Math.random() * howLong.length);
+        }
       }
-    }
-    else if (lowerConfirm && upperConfirm) {
-      for (i = 0; i < howLong; i++) {
-        passwordText += Math.floor(Math.random() * howLong.length);
+      else if (lowerConfirm && upperConfirm) {
+        for (i = 0; i < howLong; i++) {
+          passwordText += Math.floor(Math.random() * howLong.length);
+        }
       }
-    }
-    else if (lowerConfirm) {
-      for (i = 0; i < howLong; i++) {
-        passwordText += Math.floor(Math.random() * howLong.length);
+      else if (lowerConfirm) {
+        for (i = 0; i < howLong; i++) {
+          passwordText += Math.floor(Math.random() * howLong.length);
+        }
       }
-    }
-    else if (upperConfirm && numConfirm && specialConfirm) {
-      for (i = 0; i < howLong; i++) {
-        passwordText += Math.floor(Math.random() * howLong.length);
+      else if (upperConfirm && numConfirm && specialConfirm) {
+        for (i = 0; i < howLong; i++) {
+          passwordText += Math.floor(Math.random() * howLong.length);
+        }
       }
-    }
-    else if (upperConfirm && specialConfirm) {
-      for (i = 0; i < howLong; i++) {
-        passwordText += Math.floor(Math.random() * howLong.length);
+      else if (upperConfirm && specialConfirm) {
+        for (i = 0; i < howLong; i++) {
+          passwordText += Math.floor(Math.random() * howLong.length);
+        }
       }
-    }
-    else if (upperConfirm && numConfirm) {
-      for (i = 0; i < howLong; i++) {
-        passwordText += Math.floor(Math.random() * howLong.length);
+      else if (upperConfirm && numConfirm) {
+        for (i = 0; i < howLong; i++) {
+          passwordText += Math.floor(Math.random() * howLong.length);
+        }
       }
-    }
-    else if (upperConfirm) {
-      for (i = 0; i < howLong; i++) {
-        passwordText += Math.floor(Math.random() * howLong.length);
+      else if (upperConfirm) {
+        for (i = 0; i < howLong; i++) {
+          passwordText += Math.floor(Math.random() * howLong.length);
+        }
       }
-    }
-    else if (numConfirm && specialConfirm) {
-      for (i = 0; i < howLong; i++) {
-        passwordText += Math.floor(Math.random() * howLong.length);
+      else if (numConfirm && specialConfirm) {
+        for (i = 0; i < howLong; i++) {
+          passwordText += Math.floor(Math.random() * howLong.length);
+        }
       }
-    }
-    else if (numConfirm) {
-      for (i = 0; i < howLong; i++) {
-        passwordText += Math.floor(Math.random() * howLong.length);
+      else if (numConfirm) {
+        for (i = 0; i < howLong; i++) {
+          passwordText += Math.floor(Math.random() * howLong.length);
+        }
       }
-    }
-    else if (specialConfirm) {
-      for (i = 0; i < howLong; i++) {
-        passwordText += Math.floor(Math.random() * howLong.length);
+      else if (specialConfirm) {
+        for (i = 0; i < howLong; i++) {
+          passwordText += Math.floor(Math.random() * howLong.length);
+        }
       }
-    }
-    else (howLong < 8 || howLong > 128);
-      alert("Please select a value between 8 and 128");
-      return;
-    }
   }
-
- 
-)
-
-
-
-
-//var password = generatePassword();
-var passwordText = document.querySelector("#password")
+  }
+  //Adding password to password display
+  passwordText.textContent = newPassword
+}) 
 
 
 
 
 
-//passwordText.value = password;
 
 
-// Add event listener to generate button
